@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pianeitor</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4 class="orbitron">Pianeitor 3.000</h4>
+        <!---------- Panel de control del piano ----------->
+        <div id="panel">
+
+            <!----Type of sound ---->
+            <div class="panel-item sound">
+                <button class="btn-s btn btns-active" onclick="activeBtnSound('sine')">sine</button>
+                <button class="btn-s btn" onclick="activeBtnSound('square')">square</button>
+                <button class="btn-s btn" onclick="activeBtnSound('triangle')">triangle</button>
+                <button class="btn-s btn" onclick="activeBtnSound('sawtooth')">sawtooth</button>
+            </div>
+
+            <!---- Diferent views ---->
+            <div class="panel-item view">
+                <button class="btn-v btn btnv-active" onclick="activeBtnView('Space')">Space</button>
+                <button class="btn-v btn" onclick="activeBtnView('Night')">Night</button>
+                <button class="btn-v btn" onclick="activeBtnView('Spring')">Spring</button>
+                <button class="btn-v btn" onclick="activeBtnView('Fantasy')">Fantasy</button>
+            </div>
+
+            <!---- Visibility of keys from keyboard or piano notes ---->
+            <div class="panel-item keys-visible">
+                <button class="btn-n btn" onclick="btnNotes()">Notes</button>
+                <button class="btn-k btn" onclick="btnKeys()">keyboard</button>
+            </div>
+
+        </div>
+        <!--------------- TECLAS DEL PIANO ---------------->
+        <div id="piano-keys">
+            <div class="white-key key-note"  data-value="130"><span class="keys">Q</span><span class="notes">C</span></div>
+            <div class="white-key key-note"  data-value="146"><span class="keys">W</span><span class="notes">D</span></div>
+            <div class="white-key key-note"  data-value="164"><span class="keys">E</span><span class="notes">E</span></div>
+            <div class="white-key key-note"  data-value="174"><span class="keys">R</span><span class="notes">F</span></div>
+            <div class="white-key key-note"  data-value="195"><span class="keys">T</span><span class="notes">G</span></div>
+            <div class="white-key key-note"  data-value="220"><span class="keys">Y</span><span class="notes">A</span></div>
+            <div class="white-key key-note"  data-value="246"><span class="keys">U</span><span class="notes">B</span></div>
+            <div class="white-key key-note"  data-value="261"><span class="keys">I</span><span class="notes">C</span></div>
+            <div class="white-key key-note"  data-value="293"><span class="keys">O</span><span class="notes">D</span></div>
+            <div class="white-key key-note"  data-value="329"><span class="keys">P</span><span class="notes">E</span></div>
+            <div class="white-key key-note"  data-value="349"><span class="keys">A</span><span class="notes">F</span></div>
+            <div class="white-key key-note"  data-value="391"><span class="keys">S</span><span class="notes">G</span></div>
+            <div class="white-key key-note"  data-value="440"><span class="keys">D</span><span class="notes">A</span></div>
+            <div class="white-key key-note"  data-value="493"><span class="keys">F</span><span class="notes">B</span></div>
+            <div class="white-key key-note"  data-value="523"><span class="keys">G</span><span class="notes">C</span></div>
+            <div class="white-key key-note"  data-value="587"><span class="keys">H</span><span class="notes">D</span></div>
+            <div class="white-key key-note"  data-value="659"><span class="keys">J</span><span class="notes">E</span></div>
+            <div class="white-key key-note"  data-value="698"><span class="keys">K</span><span class="notes">F</span></div>
+            <div class="white-key key-note"  data-value="783"><span class="keys">L</span><span class="notes">G</span></div>
+            <div class="white-key key-note"  data-value="880"><span class="keys">M</span><span class="notes">A</span></div>
+            <div class="white-key key-note"  data-value="987"><span class="keys">N</span><span class="notes">B</span></div>
+
+            <div class="black-key key-note"  data-value="138"><span class="keys">1</span><span class="notes">C#</span></div>
+            <div class="black-key key-note"  data-value="115"><span class="keys">2</span><span class="notes">D#</span></div>
+            <div class="black-key key-note"  data-value="184"><span class="keys">3</span><span class="notes">F#</span></div>
+            <div class="black-key key-note"  data-value="207"><span class="keys">4</span><span class="notes">G#</span></div>
+            <div class="black-key key-note"  data-value="233"><span class="keys">5</span><span class="notes">A#</span></div>
+            <div class="black-key key-note"  data-value="277"><span class="keys">6</span><span class="notes">C#</span></div>
+            <div class="black-key key-note"  data-value="311"><span class="keys">7</span><span class="notes">D#</span></div>
+            <div class="black-key key-note"  data-value="369"><span class="keys">8</span><span class="notes">F#</span></div>
+            <div class="black-key key-note"  data-value="415"><span class="keys">9</span><span class="notes">G#</span></div>
+            <div class="black-key key-note"  data-value="466"><span class="keys">0</span><span class="notes">A#</span></div>
+            <div class="black-key key-note"  data-value="554"><span class="keys">Z</span><span class="notes">C#</span></div>
+            <div class="black-key key-note"  data-value="622"><span class="keys">X</span><span class="notes">D#</span></div>
+            <div class="black-key key-note"  data-value="739"><span class="keys">C</span><span class="notes">F#</span></div>
+            <div class="black-key key-note"  data-value="830"><span class="keys">V</span><span class="notes">G#</span></div>
+            <div class="black-key key-note"  data-value="932"><span class="keys">B</span><span class="notes">A#</span></div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
